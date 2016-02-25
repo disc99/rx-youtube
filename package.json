@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "init:tsc": "tsc --init",
-    "install:typings:rx": "typings install npm:rx/ts/rx.all.d.ts --save --name rx --ambient"
+    "install:typings:rx": "typings install npm:rx/ts/rx.all.d.ts --save --name rx --ambient",
+    "browserify": "browserify dist/js/youtube.js --outfile test/youtube.js"
   },
   "keywords": [],
   "author": "disc99",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^13.0.0",
     "typescript": "^1.8.2",
     "typings": "^0.6.8"
   },

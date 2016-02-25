@@ -31,3 +31,10 @@ export class Player {
     return this.events;
   }
 }
+
+
+
+// main ------
+let player = new Player();
+player.eventStream()
+    .subscribe(e => console.log(e));

@@ -26,3 +26,6 @@ var Player = (function () {
     return Player;
 }());
 exports.Player = Player;
+var player = new Player();
+player.eventStream()
+    .subscribe(function (e) { return console.log(e); });
