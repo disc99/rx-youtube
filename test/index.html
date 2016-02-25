@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <div id="player"></div>
+    <script src="../node_modules/rx/dist/rx.all.js"></script>
+    <script src="../dist/js/youtube.js"></script>
+    <script>
+      var player = new Player();
+      player.eventStream()
+          .subscribe(function(e) {
+            console.log(e);
+          });
+    </script>
+  </body>
+</html>
