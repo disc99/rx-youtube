@@ -6,7 +6,7 @@
   "scripts": {
     "init:tsc": "tsc --init",
     "install:typings:rx": "typings install npm:rx/ts/rx.all.d.ts --save --name rx --ambient",
-    "browserify": "browserify dist/js/youtube.js --outfile test/youtube.js"
+    "browserify": "browserify test/main.js --outfile test/bundle.js"
   },
   "keywords": [],
   "author": "disc99",

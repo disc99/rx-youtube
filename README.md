@@ -6,9 +6,9 @@ TODO
 
 ```javascript
 let player = new Player.Builder()
+    .videoId('M7lc1UVf-VE')
     .height('390')
     .width('640')
-    .videoId('M7lc1UVf-VE')
     // ...
     .build();
 

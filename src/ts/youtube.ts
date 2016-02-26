@@ -30,11 +30,16 @@ export class Player {
   eventStream(): Rx.Observable<any> {
     return this.events;
   }
+
+  sync(state: PlayState): void {
+    // TODO
+  }
 }
 
+export class PlayState {
 
+}
 
-// main ------
-let player = new Player();
-player.eventStream()
-    .subscribe(e => console.log(e));
+export class PlayList {
+
+}

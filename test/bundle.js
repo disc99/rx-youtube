@@ -1,37 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-"use strict";
-var Rx = require('rx');
-var Player = (function () {
-    function Player() {
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        this.events = Rx.Observable.fromEventPattern(function addHandler(handler) {
-            var _this = this;
-            window['onYouTubeIframeAPIReady'] = function () {
-                _this.youtubePlayer = new YT.Player('player', {
-                    height: '390',
-                    width: '640',
-                    videoId: 'M7lc1UVf-VE',
-                    events: {
-                        'onStateChange': handler
-                    }
-                });
-            };
-        }, null);
-    }
-    Player.prototype.eventStream = function () {
-        return this.events;
-    };
-    return Player;
-}());
-exports.Player = Player;
-var player = new Player();
-player.eventStream()
-    .subscribe(function (e) { return console.log(e); });
-
-},{"rx":3}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -124,7 +91,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 (function (process,global){
 // Copyright (c) Microsoft, All rights reserved. See License.txt in the project root for license information.
 
@@ -12487,4 +12454,55 @@ var ReactiveTest = Rx.ReactiveTest = {
 }.call(this));
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":2}]},{},[1]);
+},{"_process":1}],3:[function(require,module,exports){
+"use strict";
+var Rx = require('rx');
+var Player = (function () {
+    function Player() {
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        this.events = Rx.Observable.fromEventPattern(function addHandler(handler) {
+            var _this = this;
+            window['onYouTubeIframeAPIReady'] = function () {
+                _this.youtubePlayer = new YT.Player('player', {
+                    height: '390',
+                    width: '640',
+                    videoId: 'M7lc1UVf-VE',
+                    events: {
+                        'onStateChange': handler
+                    }
+                });
+            };
+        }, null);
+    }
+    Player.prototype.eventStream = function () {
+        return this.events;
+    };
+    Player.prototype.sync = function (state) {
+    };
+    return Player;
+}());
+exports.Player = Player;
+var PlayState = (function () {
+    function PlayState() {
+    }
+    return PlayState;
+}());
+exports.PlayState = PlayState;
+var PlayList = (function () {
+    function PlayList() {
+    }
+    return PlayList;
+}());
+exports.PlayList = PlayList;
+
+},{"rx":2}],4:[function(require,module,exports){
+"use strict";
+var Youtebe = require('../src/ts/youtube');
+var player = new Youtebe.Player();
+player.eventStream()
+    .subscribe(function (e) { return console.log(e); });
+
+},{"../src/ts/youtube":3}]},{},[4]);
