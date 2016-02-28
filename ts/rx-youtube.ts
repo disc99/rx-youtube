@@ -30,7 +30,7 @@ export class Player {
         });
       }
     };
-
+    
     this.events = Rx.Observable.fromEventPattern(addHandler, null);
   }
 
