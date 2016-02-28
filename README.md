@@ -13,9 +13,9 @@ let player = Player.builder()
     .build();
 
 player.eventStream()
-    .filer(e => e.type == 'onStateChange')
+    .filer(e => e.name == 'onStateChange')
     // ...
-    .map(e => e.target.getCurrentTime())
+    .map(e => e.event.target.getCurrentTime())
     .subscribe(t => console.log(`status change time:${t}`))
 
 ```
