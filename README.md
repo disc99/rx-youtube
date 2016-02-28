@@ -2,10 +2,10 @@
 rx-youtube is [YouTube IFrame Player API](https://developers.google.com/youtube/iframe_api_reference) wrapper module and event stream publisher.
 
 ## How to use
-TODO
 
 ```javascript
-let player = new Player.Builder()
+let player = Player.builder()
+    .container('playerId')
     .videoId('M7lc1UVf-VE')
     .height('390')
     .width('640')
