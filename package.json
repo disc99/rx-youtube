@@ -1,8 +1,8 @@
 {
   "name": "rx-youtube",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "ts/rx-youtube.js",
   "scripts": {
     "init:tsc": "tsc --init",
     "install:typings:rx": "typings install npm:rx/ts/rx.all.d.ts --save --name rx --ambient",
