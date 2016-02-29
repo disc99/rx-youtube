@@ -1,4 +1,4 @@
-import Youtebe = require('../src/ts/youtube');
+import Youtebe = require('../ts/rx-youtube');
 
 let player = Youtebe.Player.builder()
       .container('player')

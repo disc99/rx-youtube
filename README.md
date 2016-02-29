@@ -4,7 +4,9 @@ rx-youtube is [YouTube IFrame Player API](https://developers.google.com/youtube/
 ## How to use
 
 ```javascript
-let player = Player.builder()
+import Youtube = require('rx-youtube');
+
+let player = Youtube.Player.builder()
     .container('playerId')
     .videoId('M7lc1UVf-VE')
     .height('390')

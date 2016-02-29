@@ -30,7 +30,7 @@ export class Player {
         });
       }
     };
-    
+
     this.events = Rx.Observable.fromEventPattern(addHandler, null);
   }
 
@@ -84,8 +84,7 @@ export class Player {
 }
 
 export class PlayState {
-    constructor(public container: string,
-                public videoId: string,
+    constructor(public videoId: string,
                 public playlistId: string,
                 public currentTime: number,
                 public currentState: number){}

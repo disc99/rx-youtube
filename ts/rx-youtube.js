@@ -67,8 +67,7 @@ var Player = (function () {
 }());
 exports.Player = Player;
 var PlayState = (function () {
-    function PlayState(container, videoId, playlistId, currentTime, currentState) {
-        this.container = container;
+    function PlayState(videoId, playlistId, currentTime, currentState) {
         this.videoId = videoId;
         this.playlistId = playlistId;
         this.currentTime = currentTime;

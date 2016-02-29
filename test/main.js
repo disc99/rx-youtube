@@ -1,5 +1,5 @@
 "use strict";
-var Youtebe = require('../src/ts/youtube');
+var Youtebe = require('../ts/rx-youtube');
 var player = Youtebe.Player.builder()
     .container('player')
     .videoId('M7lc1UVf-VE')
