@@ -84,12 +84,24 @@ export class Player {
 }
 
 export class PlayState {
-    constructor(public videoId: string,
-                public playlistId: string,
-                public currentTime: number,
-                public currentState: number){}
+  constructor(public videoId: string,
+              public playlistId: string,
+              public currentTime: number,
+              public currentState: number){}
 }
 
+export class PlayList {
+  constructor(private playlistId: string,
+              private videos: Array<Video>,
+              private currentPosition: number){}
+}
+
+export class Video {
+  constructor(private videoId: string,
+              private title: string,
+              private length: number,
+              private currentPosition: number){}
+}
 
 export class PlayerBuilder {
   private _container: string;

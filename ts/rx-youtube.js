@@ -76,6 +76,25 @@ var PlayState = (function () {
     return PlayState;
 }());
 exports.PlayState = PlayState;
+var PlayList = (function () {
+    function PlayList(playlistId, videos, currentPosition) {
+        this.playlistId = playlistId;
+        this.videos = videos;
+        this.currentPosition = currentPosition;
+    }
+    return PlayList;
+}());
+exports.PlayList = PlayList;
+var Video = (function () {
+    function Video(videoId, title, length, currentPosition) {
+        this.videoId = videoId;
+        this.title = title;
+        this.length = length;
+        this.currentPosition = currentPosition;
+    }
+    return Video;
+}());
+exports.Video = Video;
 var PlayerBuilder = (function () {
     function PlayerBuilder() {
     }

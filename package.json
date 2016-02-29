@@ -8,7 +8,7 @@
     "install:typings:rx": "typings install npm:rx/ts/rx.all.d.ts --save --name rx --ambient",
     "browserify": "browserify test/main.js --outfile test/bundle.js"
   },
-  "keywords": [],
+  "keywords": ["youtube", "RxJS"],
   "author": "disc99",
   "license": "MIT",
   "devDependencies": {
