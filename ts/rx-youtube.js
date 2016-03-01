@@ -77,20 +77,20 @@ var PlayState = (function () {
 }());
 exports.PlayState = PlayState;
 var PlayList = (function () {
-    function PlayList(playlistId, videos, currentPosition) {
+    function PlayList(playlistId, videos, position) {
         this.playlistId = playlistId;
         this.videos = videos;
-        this.currentPosition = currentPosition;
+        this.position = position;
     }
     return PlayList;
 }());
 exports.PlayList = PlayList;
 var Video = (function () {
-    function Video(videoId, title, length, currentPosition) {
+    function Video(videoId, title, length, position) {
         this.videoId = videoId;
         this.title = title;
         this.length = length;
-        this.currentPosition = currentPosition;
+        this.position = position;
     }
     return Video;
 }());

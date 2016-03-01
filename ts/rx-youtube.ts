@@ -93,14 +93,14 @@ export class PlayState {
 export class PlayList {
   constructor(private playlistId: string,
               private videos: Array<Video>,
-              private currentPosition: number){}
+              private position: number){}
 }
 
 export class Video {
   constructor(private videoId: string,
               private title: string,
               private length: number,
-              private currentPosition: number){}
+              private position: number){}
 }
 
 export class PlayerBuilder {
