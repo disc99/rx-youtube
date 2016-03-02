@@ -4,7 +4,6 @@
   "description": "",
   "main": "ts/rx-youtube.js",
   "scripts": {
-    "init:tsc": "tsc --init",
     "install:typings:rx": "typings install npm:rx/ts/rx.all.d.ts --save --name rx --ambient",
     "browserify": "browserify test/main.js --outfile test/bundle.js"
   },
