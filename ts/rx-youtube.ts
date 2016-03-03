@@ -87,7 +87,7 @@ export class PlayState {
   constructor(public videoId: string,
               public playlistId: string,
               public currentTime: number,
-              public currentState: number){}
+              public currentState: number) {}
 }
 
 export class PlayList {

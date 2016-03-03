@@ -1,7 +1,7 @@
 {
   "name": "rx-youtube",
   "version": "0.0.2",
-  "description": "",
+  "description": "rx-youtube is YouTube IFrame Player API wrapper module and event stream publisher.",
   "main": "ts/rx-youtube.js",
   "scripts": {
     "install:typings:rx": "typings install npm:rx/ts/rx.all.d.ts --save --name rx --ambient",
