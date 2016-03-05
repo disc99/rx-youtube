@@ -35,7 +35,7 @@ export class Player {
   }
 
   private load():void {
-
+    // TODO
   }
 
   static builder():PlayerBuilder {
@@ -102,6 +102,9 @@ export class Video {
               private length: number,
               private position: number){}
 }
+
+
+
 
 export class PlayerBuilder {
   private _container: string;
