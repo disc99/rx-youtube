@@ -32,6 +32,9 @@ var Player = (function () {
     Player.builder = function () {
         return new PlayerBuilder();
     };
+    Player.prototype.getNativePlayer = function () {
+        return this.youtubePlayer;
+    };
     Player.prototype.eventStream = function () {
         return this.events;
     };

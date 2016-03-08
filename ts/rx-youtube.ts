@@ -42,6 +42,10 @@ export class Player {
     return new PlayerBuilder();
   }
 
+  getNativePlayer(): any {
+    return this.youtubePlayer;
+  }
+
   eventStream(): Rx.Observable<any> {
     return this.events;
   }
