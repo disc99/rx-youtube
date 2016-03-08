@@ -10,16 +10,29 @@ export declare class Player {
     constructor(container: string, videoId: string, playlistId: string, height: string, width: string);
     private load();
     static builder(): PlayerBuilder;
+    getNativePlayer(): any;
     eventStream(): Rx.Observable<any>;
     sync(state: PlayState): void;
 }
 export declare class PlayState {
-    container: string;
     videoId: string;
     playlistId: string;
     currentTime: number;
     currentState: number;
-    constructor(container: string, videoId: string, playlistId: string, currentTime: number, currentState: number);
+    constructor(videoId: string, playlistId: string, currentTime: number, currentState: number);
+}
+export declare class PlayList {
+    private playlistId;
+    private videos;
+    private position;
+    constructor(playlistId: string, videos: Array<Video>, position: number);
+}
+export declare class Video {
+    private videoId;
+    private title;
+    private length;
+    private position;
+    constructor(videoId: string, title: string, length: number, position: number);
 }
 export declare class PlayerBuilder {
     private _container;

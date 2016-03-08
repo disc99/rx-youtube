@@ -5,6 +5,7 @@
   "main": "ts/rx-youtube.js",
   "scripts": {
     "install:typings:rx": "typings install npm:rx/ts/rx.all.d.ts --save --name rx --ambient",
+    "build": "tsc ts/rx-youtube.ts",
     "browserify": "browserify test/main.js --outfile test/bundle.js"
   },
   "keywords": ["youtube", "RxJS"],

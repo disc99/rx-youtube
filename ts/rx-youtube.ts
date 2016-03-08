@@ -45,7 +45,7 @@ export class Player {
   getNativePlayer(): any {
     return this.youtubePlayer;
   }
-
+  
   eventStream(): Rx.Observable<any> {
     return this.events;
   }
