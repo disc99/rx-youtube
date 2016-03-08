@@ -45,7 +45,7 @@ export class Player {
   getNativePlayer(): any {
     return this.youtubePlayer;
   }
-  
+
   eventStream(): Rx.Observable<any> {
     return this.events;
   }
@@ -64,7 +64,7 @@ export class Player {
     }
 
     if (currentState != state.currentState) {
-      switch(currentState) {
+      switch(state.currentState) {
         case YT.PlayerState.ENDED:
         this.youtubePlayer.stopVideo();
         break;

@@ -8,7 +8,6 @@ var Player = (function () {
         this.playlistId = playlistId;
         this.height = height;
         this.width = width;
-        // create api call script
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -29,7 +28,6 @@ var Player = (function () {
         this.events = Rx.Observable.fromEventPattern(addHandler, null);
     }
     Player.prototype.load = function () {
-        // TODO
     };
     Player.builder = function () {
         return new PlayerBuilder();
@@ -51,7 +49,7 @@ var Player = (function () {
             this.youtubePlayer.seekTo(state.currentTime);
         }
         if (currentState != state.currentState) {
-            switch (currentState) {
+            switch (state.currentState) {
                 case YT.PlayerState.ENDED:
                     this.youtubePlayer.stopVideo();
                     break;
