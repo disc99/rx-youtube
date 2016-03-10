@@ -34,10 +34,6 @@ export class Player {
     this.events = Rx.Observable.fromEventPattern(addHandler, null);
   }
 
-  private load():void {
-    // TODO
-  }
-
   static builder():PlayerBuilder {
     return new PlayerBuilder();
   }
@@ -55,8 +51,8 @@ export class Player {
     let currentTime:number = this.youtubePlayer.getCurrentTime();
     let currentState:number = this.youtubePlayer.getPlayerState();
 
-    if (videoId != state.videoId) {
-      this.youtubePlayer.loadVideoById({'videoId': state.videoId, 'startSeconds': state.currentTime});
+    if (videoId != state.toVideoId()) {
+      this.youtubePlayer.loadVideoById({'videoId': state.toVideoId(), 'startSeconds': state.currentTime});
     }
 
     if (currentTime != state.currentTime) {
@@ -88,25 +84,19 @@ export class Player {
 }
 
 export class PlayState {
-  constructor(public videoId: string,
-              public playlistId: string,
+  constructor(public youtubeUrl: string,
               public currentTime: number,
-              public currentState: number) {}
-}
+              public currentState: number,
+              public isRepeat: boolean,
+              public sendTime: number) {}
 
-export class PlayList {
-  constructor(private playlistId: string,
-              private videos: Array<Video>,
-              private position: number){}
+  toVideoId(): string {
+    return window.location.search.substring(1).split('&')
+        .map(p => p.split('='))
+        .filter(p => p[0] == 'v')
+        .map(p => p[1])[0];
+  }
 }
-
-export class Video {
-  constructor(private videoId: string,
-              private title: string,
-              private length: number,
-              private position: number){}
-}
-
 
 
 

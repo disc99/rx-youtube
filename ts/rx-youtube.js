@@ -8,6 +8,7 @@ var Player = (function () {
         this.playlistId = playlistId;
         this.height = height;
         this.width = width;
+        // create api call script
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -27,8 +28,6 @@ var Player = (function () {
         };
         this.events = Rx.Observable.fromEventPattern(addHandler, null);
     }
-    Player.prototype.load = function () {
-    };
     Player.builder = function () {
         return new PlayerBuilder();
     };
@@ -42,8 +41,8 @@ var Player = (function () {
         var videoId = this.youtubePlayer.getVideoData().video_id;
         var currentTime = this.youtubePlayer.getCurrentTime();
         var currentState = this.youtubePlayer.getPlayerState();
-        if (videoId != state.videoId) {
-            this.youtubePlayer.loadVideoById({ 'videoId': state.videoId, 'startSeconds': state.currentTime });
+        if (videoId != state.toVideoId()) {
+            this.youtubePlayer.loadVideoById({ 'videoId': state.toVideoId(), 'startSeconds': state.currentTime });
         }
         if (currentTime != state.currentTime) {
             this.youtubePlayer.seekTo(state.currentTime);
@@ -70,34 +69,22 @@ var Player = (function () {
 }());
 exports.Player = Player;
 var PlayState = (function () {
-    function PlayState(videoId, playlistId, currentTime, currentState) {
-        this.videoId = videoId;
-        this.playlistId = playlistId;
+    function PlayState(youtubeUrl, currentTime, currentState, isRepeat, sendTime) {
+        this.youtubeUrl = youtubeUrl;
         this.currentTime = currentTime;
         this.currentState = currentState;
+        this.isRepeat = isRepeat;
+        this.sendTime = sendTime;
     }
+    PlayState.prototype.toVideoId = function () {
+        return window.location.search.substring(1).split('&')
+            .map(function (p) { return p.split('='); })
+            .filter(function (p) { return p[0] == 'v'; })
+            .map(function (p) { return p[1]; })[0];
+    };
     return PlayState;
 }());
 exports.PlayState = PlayState;
-var PlayList = (function () {
-    function PlayList(playlistId, videos, position) {
-        this.playlistId = playlistId;
-        this.videos = videos;
-        this.position = position;
-    }
-    return PlayList;
-}());
-exports.PlayList = PlayList;
-var Video = (function () {
-    function Video(videoId, title, length, position) {
-        this.videoId = videoId;
-        this.title = title;
-        this.length = length;
-        this.position = position;
-    }
-    return Video;
-}());
-exports.Video = Video;
 var PlayerBuilder = (function () {
     function PlayerBuilder() {
     }
