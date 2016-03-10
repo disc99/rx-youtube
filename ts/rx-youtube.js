@@ -1,11 +1,10 @@
 "use strict";
 var Rx = require('rx');
 var Player = (function () {
-    function Player(container, videoId, playlistId, height, width) {
+    function Player(container, videoId, height, width) {
         var _this = this;
         this.container = container;
         this.videoId = videoId;
-        this.playlistId = playlistId;
         this.height = height;
         this.width = width;
         // create api call script
@@ -96,10 +95,6 @@ var PlayerBuilder = (function () {
         this._videoId = videoId;
         return this;
     };
-    PlayerBuilder.prototype.playlistId = function (playlistId) {
-        this._playlistId = playlistId;
-        return this;
-    };
     PlayerBuilder.prototype.height = function (height) {
         this._height = height;
         return this;
@@ -109,7 +104,7 @@ var PlayerBuilder = (function () {
         return this;
     };
     PlayerBuilder.prototype.build = function () {
-        return new Player(this._container, this._videoId, this._playlistId, this._height, this._width);
+        return new Player(this._container, this._videoId, this._height, this._width);
     };
     return PlayerBuilder;
 }());

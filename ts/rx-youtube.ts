@@ -7,7 +7,6 @@ export class Player {
 
   constructor(private container: string,
               private videoId: string,
-              private playlistId: string,
               private height: string,
               private width: string) {
 
@@ -98,12 +97,9 @@ export class PlayState {
   }
 }
 
-
-
 export class PlayerBuilder {
   private _container: string;
   private _videoId: string;
-  private _playlistId: string;
   private _height: string;
   private _width: string;
 
@@ -114,11 +110,6 @@ export class PlayerBuilder {
 
   videoId(videoId: string): PlayerBuilder {
     this._videoId = videoId;
-    return this;
-  }
-
-  playlistId(playlistId: string): PlayerBuilder {
-    this._playlistId = playlistId;
     return this;
   }
 
@@ -135,7 +126,6 @@ export class PlayerBuilder {
   build(): Player {
     return new Player(this._container,
                       this._videoId,
-                      this._playlistId,
                       this._height,
                       this._width)
   }
