@@ -76,7 +76,7 @@ var PlayState = (function () {
         this.sendTime = sendTime;
     }
     PlayState.prototype.toVideoId = function () {
-        return window.location.search.substring(1).split('&')
+        return this.youtubeUrl.substring(1).split('&')
             .map(function (p) { return p.split('='); })
             .filter(function (p) { return p[0] == 'v'; })
             .map(function (p) { return p[1]; })[0];
