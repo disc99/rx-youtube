@@ -90,10 +90,10 @@ export class PlayState {
               public sendTime: number) {}
 
   toVideoId(): string {
-    return this.youtubeUrl.substring(1).split('&')
-        .map(p => p.split('='))
-        .filter(p => p[0] == 'v')
-        .map(p => p[1])[0];
+    return this.youtubeUrl.split('?')[1].split('&')
+      .map(function (p) { return p.split('='); })
+      .filter(function (p) { return p[0] == 'v'; })
+      .map(function (p) { return p[1]; })[0];
   }
 }
 
