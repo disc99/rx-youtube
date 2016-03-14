@@ -68,12 +68,13 @@ var Player = (function () {
 }());
 exports.Player = Player;
 var PlayState = (function () {
-    function PlayState(youtubeUrl, currentTime, currentState, isRepeat, sendTime) {
+    function PlayState(youtubeUrl, currentTime, currentState, isRepeat, sendTime, duration) {
         this.youtubeUrl = youtubeUrl;
         this.currentTime = currentTime;
         this.currentState = currentState;
         this.isRepeat = isRepeat;
         this.sendTime = sendTime;
+        this.duration = duration;
     }
     PlayState.prototype.toVideoId = function () {
         return this.youtubeUrl.split('?')[1].split('&')

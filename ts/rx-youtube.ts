@@ -87,7 +87,8 @@ export class PlayState {
               public currentTime: number,
               public currentState: number,
               public isRepeat: boolean,
-              public sendTime: number) {}
+              public sendTime: number,
+              public duration: number) {}
 
   toVideoId(): string {
     return this.youtubeUrl.split('?')[1].split('&')

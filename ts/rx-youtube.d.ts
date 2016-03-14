@@ -18,7 +18,8 @@ export declare class PlayState {
     currentState: number;
     isRepeat: boolean;
     sendTime: number;
-    constructor(youtubeUrl: string, currentTime: number, currentState: number, isRepeat: boolean, sendTime: number);
+    duration: number;
+    constructor(youtubeUrl: string, currentTime: number, currentState: number, isRepeat: boolean, sendTime: number, duration: number);
     toVideoId(): string;
 }
 export declare class PlayerBuilder {
